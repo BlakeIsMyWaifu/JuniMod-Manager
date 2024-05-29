@@ -1,21 +1,24 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import path from 'node:path'
 
-// https://vitejs.dev/config/
+import eslintPlugin from '@nabla/vite-plugin-eslint'
+import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
+
+// eslint-disable-next-line @typescript-eslint/require-await
 export default defineConfig(async () => ({
-  plugins: [react()],
-
-  // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
-  //
-  // 1. prevent vite from obscuring rust errors
-  clearScreen: false,
-  // 2. tauri expects a fixed port, fail if that port is not available
-  server: {
-    port: 1420,
-    strictPort: true,
-    watch: {
-      // 3. tell vite to ignore watching `src-tauri`
-      ignored: ["**/src-tauri/**"],
-    },
-  },
-}));
+	plugins: [react(), eslintPlugin()],
+	clearScreen: false,
+	server: {
+		port: 1420,
+		strictPort: true,
+		watch: {
+			ignored: ['**/src-tauri/**']
+		}
+	},
+	resolve: {
+		alias: {
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+			'~': path.resolve(__dirname, './src')
+		}
+	}
+}))

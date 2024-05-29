@@ -1,11 +1,11 @@
 {
   "productName": "junimod-manager",
   "version": "0.0.0",
-  "identifier": "com.tauri.dev",
+  "identifier": "dev.blakeismywaifu.junimod-manager",
   "build": {
-    "beforeDevCommand": "pnpm dev",
+    "beforeDevCommand": "vite",
     "devUrl": "http://localhost:1420",
-    "beforeBuildCommand": "pnpm build",
+    "beforeBuildCommand": "tsc && vite build",
     "frontendDist": "../dist"
   },
   "app": {
