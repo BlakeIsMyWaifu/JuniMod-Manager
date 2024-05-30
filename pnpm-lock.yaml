@@ -14,6 +14,9 @@ importers:
       '@mantine/hooks':
         specifier: ^7.10.1
         version: 7.10.1(react@18.3.1)
+      '@tabler/icons-react':
+        specifier: ^3.5.0
+        version: 3.5.0(react@18.3.1)
       '@tauri-apps/api':
         specifier: '>=2.0.0-beta.0'
         version: 2.0.0-beta.13
@@ -548,6 +551,14 @@ packages:
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: '>=8.40.0'
+
+  '@tabler/icons-react@3.5.0':
+    resolution: {integrity: sha512-bn05XKZV3ZfOv5Jr1FCTmVPOQGBVJoA4NefrnR919rqg6WGXAa08NovONHJGSuMxXUMV3b9Cni85diIW/E9yuw==}
+    peerDependencies:
+      react: '>= 16'
+
+  '@tabler/icons@3.5.0':
+    resolution: {integrity: sha512-I53dC3ZSHQ2MZFGvDYJelfXm91L2bTTixS4w5jTAulLhHbCZso5Bih4Rk/NYZxlngLQMKHvEYwZQ+6w/WluKiA==}
 
   '@tauri-apps/api@2.0.0-beta.11':
     resolution: {integrity: sha512-wJRY+fBUm3KpqZDHMIz5HRv+1vlnvRJ/dFxiyY3NlINTx2qXqDou5qWYcP1CuZXsd39InWVPV3FAZvno/kGCkA==}
@@ -2328,6 +2339,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
       - typescript
+
+  '@tabler/icons-react@3.5.0(react@18.3.1)':
+    dependencies:
+      '@tabler/icons': 3.5.0
+      react: 18.3.1
+
+  '@tabler/icons@3.5.0': {}
 
   '@tauri-apps/api@2.0.0-beta.11': {}
 
