@@ -1,6 +1,8 @@
-import { AppShell, Burger, Group, Image, Skeleton, Title } from '@mantine/core'
+import { AppShell, Burger, Group, Skeleton, Title } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import { type ReactNode } from 'react'
+
+import Junimo from './Junimo'
 
 type LayoutProps = {
 	children: ReactNode
@@ -24,7 +26,7 @@ export default function Layout({ children }: LayoutProps) {
 				<Group h='100%' px='md'>
 					<Burger opened={mobileOpened} onClick={toggleMobile} hiddenFrom='sm' size='sm' />
 					<Burger opened={desktopOpened} onClick={toggleDesktop} visibleFrom='sm' size='sm' />
-					<Image src='junimo.png' />
+					<Junimo />
 					<Title>JuniMod Manager</Title>
 				</Group>
 			</AppShell.Header>
