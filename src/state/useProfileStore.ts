@@ -1,6 +1,8 @@
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 
+import { mkdir } from '~/utils/fileManager'
+
 import { createActionName, persistStoreName, type Slice } from './storeTypes'
 
 type ProfileData = {
@@ -8,20 +10,13 @@ type ProfileData = {
 }
 
 type ProfileState = {
-	activeProfile: string
+	activeProfile: string | null
 	profiles: Record<string, ProfileData>
 }
 
 const profileState: ProfileState = {
-	activeProfile: 'New Profile 1',
-	profiles: {
-		'New Profile 1': { modIds: [] },
-		'New Profile 2': { modIds: [] },
-		'New Profile 3': { modIds: [] },
-		'New Profile 4': { modIds: [] },
-		'New Profile 5': { modIds: [] },
-		'New Profile 6': { modIds: [] }
-	}
+	activeProfile: null,
+	profiles: {}
 }
 
 type ProfileAction = {
@@ -45,6 +40,9 @@ const createModpackAction: Slice<ProfileStore, ProfileAction> = (set, get) => ({
 	},
 
 	addProfile: name => {
+		const profileNames = Object.keys(get().profiles)
+		if (profileNames.includes(name)) return
+
 		const blankProfile: ProfileData = {
 			modIds: []
 		}
@@ -58,6 +56,8 @@ const createModpackAction: Slice<ProfileStore, ProfileAction> = (set, get) => ({
 			}),
 			...actionName('addProfile')
 		)
+
+		mkdir({ folderName: name })
 	}
 })
 
@@ -70,8 +70,8 @@ export const useProfileStore = create<ProfileStore>()(
 				...profileState,
 				...createModpackAction(...a)
 			}),
-			{ name: persistStoreName('modpack') }
+			{ name: persistStoreName('profile') }
 		),
-		{ name: 'Modpack Store' }
+		{ name: 'Profile Store' }
 	)
 )

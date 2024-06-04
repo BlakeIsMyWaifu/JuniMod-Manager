@@ -1,11 +1,18 @@
-import { Text } from '@mantine/core'
+import { Container, Text } from '@mantine/core'
 
 import Layout from './components/Layout'
+import PathImport from './components/PathImport'
 
 export default function App() {
 	return (
-		<Layout>
-			<Text>Content</Text>
-		</Layout>
+		<>
+			<PathImport />
+
+			<Layout>
+				<Container>
+					<Text>No Profiles Created Yet</Text>
+				</Container>
+			</Layout>
+		</>
 	)
 }
