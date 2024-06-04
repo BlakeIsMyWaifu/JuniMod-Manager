@@ -5,14 +5,17 @@ import { createActionName, persistStoreName, type Slice } from './storeTypes'
 
 type SettingsState = {
 	basePath: string | null
+	apiKey: string | null
 }
 
 const settingsState: SettingsState = {
-	basePath: null
+	basePath: null,
+	apiKey: null
 }
 
 type SettingsAction = {
 	updateBasePath: (path: SettingsState['basePath']) => void
+	updateApiKey: (apiKey: SettingsState['apiKey']) => void
 }
 
 const actionName = createActionName<keyof SettingsAction>('settings')
@@ -24,6 +27,15 @@ const createSettingsAction: Slice<SettingsStore, SettingsAction> = (set, _get) =
 				basePath: path
 			},
 			...actionName('updateBasePath')
+		)
+	},
+
+	updateApiKey: apiKey => {
+		set(
+			{
+				apiKey
+			},
+			...actionName('updateApiKey')
 		)
 	}
 })

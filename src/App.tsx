@@ -1,17 +1,25 @@
 import { Container, Text } from '@mantine/core'
 
 import Layout from './components/Layout'
-import PathImport from './components/PathImport'
+import Profile from './components/Profile'
+import Setup from './components/Setup'
+import { useProfileStore } from './state/useProfileStore'
 
 export default function App() {
+	const activeProfile = useProfileStore(state => state.activeProfile)
+
 	return (
 		<>
-			<PathImport />
+			<Setup />
 
 			<Layout>
-				<Container>
-					<Text>No Profiles Created Yet</Text>
-				</Container>
+				{activeProfile ? (
+					<Profile />
+				) : (
+					<Container>
+						<Text>No Profiles Created Yet</Text>
+					</Container>
+				)}
 			</Layout>
 		</>
 	)

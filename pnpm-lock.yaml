@@ -26,6 +26,9 @@ importers:
       '@tauri-apps/plugin-fs':
         specifier: 2.0.0-beta.4
         version: 2.0.0-beta.4
+      '@tauri-apps/plugin-http':
+        specifier: 2.0.0-beta.5
+        version: 2.0.0-beta.5
       '@tauri-apps/plugin-shell':
         specifier: '>=2.0.0-beta.0'
         version: 2.0.0-beta.4
@@ -48,6 +51,9 @@ importers:
       '@tauri-apps/cli':
         specifier: '>=2.0.0-beta.0'
         version: 2.0.0-beta.19
+      '@total-typescript/ts-reset':
+        specifier: ^0.5.1
+        version: 0.5.1
       '@types/node':
         specifier: ^20.12.12
         version: 20.12.12
@@ -649,8 +655,14 @@ packages:
   '@tauri-apps/plugin-fs@2.0.0-beta.4':
     resolution: {integrity: sha512-LOCOXVFd16rPIGeM2L1HQihvPqTCnhbfgrZG516tAY/odH+cPxNCKWEHyZvfldUK2dPnJh9q1i813bvWkPzPpQ==}
 
+  '@tauri-apps/plugin-http@2.0.0-beta.5':
+    resolution: {integrity: sha512-zRWWWCNw/TdewCSrBY8Racm2dwMpkzMOnFmHGExEIoklqUUIq3FU/hkqcX/67Nplf+t1y+WljOxKpCHbm1fOQw==}
+
   '@tauri-apps/plugin-shell@2.0.0-beta.4':
     resolution: {integrity: sha512-y9APB3ZLtkY4IM6syE+dn/R4XR2UTHBcAI/n9L5PgnvOjJAuuEzVYURn10G51nKnLw+sFbxO7LW4VW66Uoaa9g==}
+
+  '@total-typescript/ts-reset@0.5.1':
+    resolution: {integrity: sha512-AqlrT8YA1o7Ff5wPfMOL0pvL+1X+sw60NN6CcOCqs658emD6RfiXhF7Gu9QcfKBH7ELY2nInLhKSCWVoNL70MQ==}
 
   '@types/babel__core@7.20.5':
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
@@ -2420,9 +2432,15 @@ snapshots:
     dependencies:
       '@tauri-apps/api': 2.0.0-beta.12
 
+  '@tauri-apps/plugin-http@2.0.0-beta.5':
+    dependencies:
+      '@tauri-apps/api': 2.0.0-beta.13
+
   '@tauri-apps/plugin-shell@2.0.0-beta.4':
     dependencies:
       '@tauri-apps/api': 2.0.0-beta.11
+
+  '@total-typescript/ts-reset@0.5.1': {}
 
   '@types/babel__core@7.20.5':
     dependencies:
